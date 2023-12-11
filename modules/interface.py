@@ -41,8 +41,8 @@ def take_user_input(statement, acceptable_inputs, notation_bool = False):
                 break
     
       #Conditional to print warning when user input is invalid
-      if unacceptable_bool == True:
-        print("I wrote this sad little ballad, \nbecause your input is invalid." +
+        if unacceptable_bool == True:
+            print("I wrote this sad little ballad, \nbecause your input is invalid." +
               "\nPlease try again with a proper input.")
   
     return var #Returns valid user input
@@ -69,7 +69,7 @@ def user_interface(list_pieces):
     if menu_pref == 'A':
         output = advanced_interface(list_pieces)
         if output != None:
-          return output
+            return output
         return None
     #To exit loop if preference is Q
     elif menu_pref == 'Q':
@@ -96,9 +96,9 @@ def user_interface(list_pieces):
             input_add_chord = take_user_input('Major or minor? [M/m]: ', ['M', 'm'])
             #Conditional to choose add_chord
             if input_add_chord == 'm':
-              input_add_chord = 'minor'
+                input_add_chord = 'minor'
             else:
-              input_add_chord = 'major'
+                input_add_chord = 'major'
         else:
             input_add_chord = 'major'
     
@@ -168,9 +168,9 @@ def advanced_interface(list_pieces):
             user_piece = take_user_input('Enter piece name: ', music_list)
       
             if user_choice == 'R':
-              list_pieces[user_piece].sequence(rerun = True) #Run sequencing
+                list_pieces[user_piece].sequence(rerun = True) #Run sequencing
             else:
-              list_pieces[user_piece].generate_symph() #Generate symphony
+                list_pieces[user_piece].generate_symph() #Generate symphony
       
             return None
     

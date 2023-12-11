@@ -18,9 +18,9 @@ def play_music(midi_file, settings, country = False):
     #Conditional to add settings and create midi file if settings are not determined
     if settings == False:
         if country == True:
-          write(midi_file, bpm = 100, instrument = 25, name = 'output.mid')
+            write(midi_file, bpm = 100, instrument = 25, name = 'output.mid')
         else:
-          write(midi_file, bpm = 100, instrument = 1, name = 'output.mid')
+            write(midi_file, bpm = 100, instrument = 1, name = 'output.mid')
     else:
         write(midi_file, name = 'output.mid')
   
@@ -207,25 +207,25 @@ class Jazz(Genre):
                         add_chord_new = random.choice(['major', 'minor'])
         
                       #Sub-progression to transition to new chord type
-                      if add_chord_new != add_chord:
-                          x = '4'
-                          self.raw_chords.append(get_chord(
+                        if add_chord_new != add_chord:
+                            x = '4'
+                            self.raw_chords.append(get_chord(
                               key_scale.get_note_from_degree(int(x)), add_chord))
-                          self.chord_tracks.append(arp(get_chord(
+                            self.chord_tracks.append(arp(get_chord(
                               key_scale.get_note_from_degree(int(x)), add_chord),
                               random.randrange(2, 4), random.randrange(5, 7),
                               durations = 0.5, intervals = 0.0625, second_half = True))
-                          add_chord = add_chord_new
+                            add_chord = add_chord_new
         
                     #Conditional to add chords based on specified degree
                     if int(x) == 5:
                         chord_x = get_chord(key_scale.get_note_from_degree(int(x)), 'M7')
                         if add_chord == 'minor':
-                          chord_x = chord_x('b9')
+                            chord_x = chord_x('b9')
                     elif int(x) == 2:
                         chord_x = get_chord(key_scale.get_note_from_degree(int(x)), 'm7')
                         if add_chord == 'minor':
-                          chord_x = chord_x('b5')
+                            chord_x = chord_x('b5')
                     elif int(x) == 1 and add_chord == 'minor':
                         chord_x = get_chord(key_scale.get_note_from_degree(int(x)), 'm6')
                     else:
@@ -248,12 +248,12 @@ class Jazz(Genre):
     
         return self.chord_tracks #return list of musicpy.structures.chord
   
-def generate_symph(self):
-    """Calls superclass generate_symph() method with instruments and volumes
-    """
-    super().generate_symph([1, 2, 3, 12, 26, 52],
-         [27, 32, 40, 56, 57, 64, 65, 66], [85, 75, 70, 65, 55])
-    
+    def generate_symph(self):
+        """Calls superclass generate_symph() method with instruments and volumes
+        """
+        super().generate_symph([1, 2, 3, 12, 26, 52],
+             [27, 32, 40, 56, 57, 64, 65, 66], [85, 75, 70, 65, 55])
+
 class Pop(Genre):
     """Subclass of Genre to represent all pop instances.
   
