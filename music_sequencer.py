@@ -1,6 +1,45 @@
 from musicpy import *
 from IPython.display import Audio, display, FileLink
 import random
+from time import sleep
+
+def play_music(midi_file, settings, country = False):
+  """Generates audio playback within output.
+
+  Parameters
+  ----------
+  midi_file : musicpy.structures
+    Musical structure to generate audio playback with
+  settings : bool
+    Whether settings are determined or not
+  country : bool, default=False
+    Whether music is country music
+  """
+  #Conditional to add settings and create midi file if settings are not determined
+  if settings == False:
+    if country == True:
+      write(midi_file, bpm = 100, instrument = 25, name = 'output.mid')
+    else:
+      write(midi_file, bpm = 100, instrument = 1, name = 'output.mid')
+  else:
+    write(midi_file, name = 'output.mid')
+
+  #Command to generate waveform audio file from midi file via Fluidsynth
+  get_ipython().system('fluidsynth -F output.wav output.mid')
+
+  #Play waveform audio file
+  display(Audio('output.wav', autoplay=True))
+  print('Loading')
+  sleep(10)
+  print('The file is now ready for download. Would you like to download it,' +
+        ' or would you prefer to do so later?')
+
+  #Conditional to allow download of files
+  if take_user_input('Download now? [Y/N]: ', ['Y', 'N']) == 'Y':
+    display(FileLink('output.wav'))
+  else:
+    print('Do remember: if you do not like the sequenced song,' +
+          ' you can rerun sequencing through the Advanced Menu.')
 
 class Genre():
   """Superclass to represent default musical instance.
