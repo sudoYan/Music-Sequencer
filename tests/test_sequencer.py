@@ -1,4 +1,4 @@
-import music_sequencer as ms
+import modules.music_sequencer as ms
 
 class TestJazzSequence():
     """Test sequence() method of Jazz Class"""
