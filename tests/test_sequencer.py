@@ -1,4 +1,5 @@
 import music_sequencer as ms
+
 class TestJazzSequence():
     """Test sequence() method of Jazz Class"""
   
@@ -28,7 +29,7 @@ class TestJazzSequence():
             assert item1 == item2
         new_output = self.jazz_two.sequence(rerun = True)
         assert new_output != self.output_two
-      
+
 class TestGenerateSymph():
     """Test generate_symph() method of Genre superclass"""
   
